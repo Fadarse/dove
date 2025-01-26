@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { TextField, Button, Typography, Box } from "@mui/material";
 import { createBranch } from "./branchApi";
 
 const BranchForm = ({ onSubmit }) => {
@@ -7,56 +8,70 @@ const BranchForm = ({ onSubmit }) => {
     location: '',
     manager: '',
   });
+
   const handleChange = (e) => {
-    const {name, value} = e.target;
-    SetFormData({ ...formData, [name]: value});
+    const { name, value } = e.target;
+    SetFormData({ ...formData, [name]: value });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await createBranch(formData);
-      alert('Branch created successfuly');
-      SetFormData({name: '', location: '', manager: '',});
-    }catch (error) {
+      alert('Branch created successfully');
+      SetFormData({ name: '', location: '', manager: '' });
+    } catch (error) {
       console.error('Error creating branch', error);
     }
   };
 
   return (
-
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="branchName">Branch Name:</label>
-        <input
-          type="text"
+    <div>
+    <Box component="form" onSubmit={handleSubmit} p={2}>
+      <Typography variant="h4" gutterBottom>
+        Create Branch
+      </Typography>
+      <Box mb={2}>
+        <TextField
+          label="Branch Name"
           id="branchName"
+          name="name"
           value={formData.name}
           onChange={handleChange}
           required
+          fullWidth
+          margin="normal"
         />
-      </div>
-      <div>
-        <label htmlFor="branchLocation">Branch Location:</label>
-        <input
-          type="text"
+      </Box>
+      <Box mb={2}>
+        <TextField
+          label="Branch Location"
           id="branchLocation"
+          name="location"
           value={formData.location}
           onChange={handleChange}
           required
+          fullWidth
+          margin="normal"
         />
-      </div>
-      <div>
-        <label htmlFor="branchManager">Manager:</label>
-        <input
-          type="text"
+      </Box>
+      <Box mb={2}>
+        <TextField
+          label="Manager"
           id="branchManager"
+          name="manager"
           value={formData.manager}
           onChange={handleChange}
           required
+          fullWidth
+          margin="normal"
         />
-      </div>
-      <button type="submit">Create Branch</button>
-    </form>
+      </Box>
+      <Button type="submit" variant="contained" color="primary">
+        Create Branch
+      </Button>
+    </Box>
+    </div>
   );
 };
 

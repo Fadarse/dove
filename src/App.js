@@ -6,16 +6,20 @@ import Facility from './components/Facility';
 import HumanResources from './components/HumanResource';
 import Login from './components/Login';
 import Material from './components/Material';
-import MaterialForm from './components/MaterialForm';
 import ProcurementForm from './components/ProcurementForm';
 import Product from './components/Product';
 import ProductionForm from './components/ProductionForm';
 import SalesForm from './components/Forms/SalesForm';
 import UserManagement from './components/UserManagement';
 
+import CustomForm from './components/Dashboard/CustomForm';
+import ProductForm from './components/Product/ProductForm';
+import MaterialForm from './components/Material/MaterialForm';
+import MaterialRequestForm from './components/Material/MaterialRequestForm';
 
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import LiveOrderTracking from './components/LiveOrderTracking';
+
 
 
 
@@ -24,6 +28,11 @@ return (
 
     <Router>
         <Routes>
+
+            <Route path="/Dashboard/CustomForm" element={<CustomForm/>} />
+            <Route path="/Dashboard/ProductForm" element={<ProductForm/>} />
+            <Route path="/Dashboard/MaterialForm" element={<MaterialForm/>} />
+            <Route path="/Dashboard/MaterialRequestForm" element={<MaterialRequestForm />} />
 
             <Route path="/" element={<Login/>} />
             <Route path="/Accounts" element={<Accounts/>} />

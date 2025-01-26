@@ -4,23 +4,26 @@ import { styled } from "@mui/material/styles";
 
 const CustomTextField = styled(TextField)({
   "& label.Mui-focused": {
-    color: "blue",
+    color: "4CAF50",
   },
   "& .MuiInput-underline:after": {
-    borderBottomColor: "blue",
+    borderBottomColor: "4CAF50",
   },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
-      borderColor: "gray",
+      borderColor: "4CAF50",
     },
     "&:hover fieldset": {
-      borderColor: "blue",
+      borderColor: "4CAF50",
     },
     "&.Mui-focused fieldset": {
-      borderColor: "blue",
+      borderColor: "4CAF50",
     },
+   
   },
 });
+
+
 
 const InputField = ({ label, value, onChange, ...props }) => {
   return (

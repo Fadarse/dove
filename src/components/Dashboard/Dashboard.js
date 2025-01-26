@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { Grid2, Card, CardContent, BoxAppBar, Toolbar, IconButton, Typography, Drawer,AppBar, List, ListItem, ListItemText, CssBaseline, } from "@mui/material";
 import StatsCard from "./StatsCard";
@@ -107,10 +108,50 @@ const Dashboard = () => {
         </Card>
       </Grid2>
 
+      {/* <StatsCard />
       <StatsCard />
       <StatsCard />
-      <StatsCard />
-      <StatsCard />
+      <StatsCard /> */}
+
+      <Link to="./CustomForm">
+          <Grid2 item xs={12} md={6}>
+            <Card>
+              <CardContent>
+            <Typography variant="h6">Add User</Typography>
+              </CardContent>
+            </Card>
+          </ Grid2>
+      </Link>
+
+      <Link to="./MaterialForm">
+          <Grid2 item xs={12} md={6}>
+            <Card>
+              <CardContent>
+            <Typography variant="h6">Add Material</Typography>
+              </CardContent>
+            </Card>
+          </ Grid2>
+      </Link>
+
+      <Link to="./ProductForm">
+          <Grid2 item xs={12} md={6}>
+            <Card>
+              <CardContent>
+            <Typography variant="h6">Add Product</Typography>
+              </CardContent>
+            </Card>
+          </ Grid2>
+      </Link>
+
+      <Link to="./MaterialRequestForm">
+          <Grid2 item xs={12} md={6}>
+            <Card>
+              <CardContent>
+            <Typography variant="h6">Material Request</Typography>
+              </CardContent>
+            </Card>
+          </ Grid2>
+      </Link>
 
   
 

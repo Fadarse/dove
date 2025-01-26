@@ -1,3 +1,4 @@
+import zIndex from "@mui/material/styles/zIndex";
 import React from "react";
 
 const Header = () => {
@@ -12,7 +13,7 @@ const Header = () => {
 const Footer = () => {
   return (
     <footer style={styles.footer}>
-      <p>© fadarse 2025</p>
+      <p>© fadarse 2025, All Rights Reserved.</p>
     </footer>
   );
 };
@@ -26,6 +27,7 @@ const styles = {
     width: "100%",
     position: "sticky",
     top: "0",
+    zIndex: "10",
   },
   img: {
     width: "26px",
@@ -50,6 +52,7 @@ const styles = {
     left: "0",
     bottom: "0",
     width: "100%",
+    zIndex: "10",
   },
 };
 
