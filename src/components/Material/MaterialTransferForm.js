@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Header, Footer } from "../custom";
 import { TextField, MenuItem, Button, Box, Typography, MenuList, AppBar, Toolbar } from "@mui/material";
 import InputField from "../Dashboard/InputField";
-import { KeyboardOptionKey } from "@mui/icons-material";
+import { KeyboardOptionKey, TextFields } from "@mui/icons-material";
 import {Link} from "react-router-dom";
 
 const materialOptions = {
@@ -80,7 +80,7 @@ const indirectMaterialOptions = {
     
 };
 
-const MaterialRequestForm = () => {
+const MaterialTransferForm = () => {
     const [formData, setFormData] = useState({
         material: "",
         measurement: "",
@@ -144,7 +144,7 @@ const MaterialRequestForm = () => {
         }} 
         > 
             <Toolbar>
-                <Typography variant="h5">Material Request Form</Typography>
+                <Typography variant="h5">Material Transfer Form</Typography>
                   <img alt="logo" src="../superchefs-logo.png" style={{ 
                     height: 40, 
                     marginRight: 20, 
@@ -323,6 +323,23 @@ const MaterialRequestForm = () => {
                             >
                                 Add Material
                             </Button>
+                            <TextField 
+                            select
+                            label="Select Recipient"
+                            name="recipient"
+                            // value={DataTransfer.recipient}
+                            sx={inputFieldStyles}
+                            required
+                            >
+                                <MenuItem value="ojodu"> Ojodu</MenuItem>
+                                <MenuItem value="lekki"> Lekki</MenuItem>
+                                <MenuItem value="osogbo"> Osogbo</MenuItem>
+                            </TextField>
+                            <TextField 
+                            label="reason"
+                            name="reason"
+                            required
+                            ></TextField>
 
                     <Button
                         type="submit"
@@ -330,7 +347,7 @@ const MaterialRequestForm = () => {
                         startIcon={<KeyboardOptionKey />}
                         sx={{ backgroundColor: "#4CAF50" }}
                     >
-                        Sumbit for approval
+                        Transfer Materials
                     </Button>
                 </Box>
             <Footer />
@@ -339,4 +356,4 @@ const MaterialRequestForm = () => {
     );
 };
 
-export default MaterialRequestForm;
+export default MaterialTransferForm;

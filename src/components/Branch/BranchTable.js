@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getAllBranches } from "./branchApi";
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from "@mui/material";
 
 const BranchTable = () => {
   const [branches, setBranches] = useState([]);
@@ -18,29 +19,33 @@ const BranchTable = () => {
 
   return (
     <div>
-      <h1>Company Branches</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Branch ID</th>
-            <th>Location</th>
-            <th>Manager</th>
-            <th>Other Elements</th>
-          </tr>
-        </thead>
-        <tbody>
-          {branches.map((branch) => (
-            <tr key={branch.branchId}>
-              <td>{branch.name}</td>
-              <td>{branch.branchId}</td>
-              <td>{branch.location}</td>
-              <td>{branch.manager}</td>
-              <td>{branch.otherElements}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell>Branch ID</TableCell>
+              <TableCell>Location</TableCell>
+              <TableCell>Manager</TableCell>
+              <TableCell>Other Elements</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {branches.map((branch, index) => (
+              <TableRow
+                key={branch.branchId}
+                sx={{ backgroundColor: index % 2 === 0 ? 'white' : '#f5f5f5' }}
+              >
+                <TableCell>{branch.name}</TableCell>
+                <TableCell>{branch.branchId}</TableCell>
+                <TableCell>{branch.location}</TableCell>
+                <TableCell>{branch.manager}</TableCell>
+                <TableCell>{branch.otherElements}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
 };

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Header, Footer } from "../custom";
 import { TextField, MenuItem, Button, Box, Typography, MenuList, AppBar, Toolbar } from "@mui/material";
 import InputField from "../Dashboard/InputField";
-import { KeyboardOptionKey } from "@mui/icons-material";
-import {Link} from "react-router-dom";
+import { KeyboardOptionKey, TextFields } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const materialOptions = {
     Flour: "",
@@ -80,7 +80,7 @@ const indirectMaterialOptions = {
     
 };
 
-const MaterialRequestForm = () => {
+const MaterialDamagesForm = () => {
     const [formData, setFormData] = useState({
         material: "",
         measurement: "",
@@ -144,7 +144,7 @@ const MaterialRequestForm = () => {
         }} 
         > 
             <Toolbar>
-                <Typography variant="h5">Material Request Form</Typography>
+                <Typography variant="h5">Material Damages Record</Typography>
                   <img alt="logo" src="../superchefs-logo.png" style={{ 
                     height: 40, 
                     marginRight: 20, 
@@ -164,7 +164,8 @@ const MaterialRequestForm = () => {
                     marginTop:"5rem",
                 }}
             >
-                <Link to="/Dashboard/Material">
+
+                            <Link to="/Dashboard/Material">
                             <Button
                                 type="button"
                                 variant="contained"
@@ -173,8 +174,7 @@ const MaterialRequestForm = () => {
                                 Return
                             </Button>
                             </Link>
-
-
+                <Typography sx={{color:"red", textAlign:"center"}}> Note: <br/> Only record damaged matarials that were not recorded during production here!</Typography>
                 <Typography sx={{ margin: "1rem 0" }} variant="h6">
                     Direct Production Materials
                 </Typography>
@@ -323,6 +323,14 @@ const MaterialRequestForm = () => {
                             >
                                 Add Material
                             </Button>
+                            
+                            <TextField 
+                            label="Give detailed narration"
+                            name="reason"
+                            required
+                            >
+                            
+                            </TextField>
 
                     <Button
                         type="submit"
@@ -330,7 +338,7 @@ const MaterialRequestForm = () => {
                         startIcon={<KeyboardOptionKey />}
                         sx={{ backgroundColor: "#4CAF50" }}
                     >
-                        Sumbit for approval
+                        Record Damages
                     </Button>
                 </Box>
             <Footer />
@@ -339,4 +347,4 @@ const MaterialRequestForm = () => {
     );
 };
 
-export default MaterialRequestForm;
+export default MaterialDamagesForm;

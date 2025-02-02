@@ -27,6 +27,7 @@ body {
   font-size: 1.2rem;
 }
 
+
 .login-container button {
   background-color: #ff69b4; /* Pink */
   color: #fff;
@@ -36,6 +37,8 @@ body {
   margin-top: 1.5rem;
   cursor: pointer;
   width: 80%;
+
+  /* color: #d0F0D0; */
 }
 
 .login-container button:hover {

@@ -1,13 +1,13 @@
 import React, {useState} from "react";
-import MaterialTable from "./MaterialTable"
-import MaterialRequestForm from "./MaterialRequestForm";
-import MaterialForm from "./MaterialForm"
+
+import ProductTable from "./ProductTable";
+
 import {Link} from "react-router-dom";
 import { Button, Toolbar, List, ListItem, ListItemIcon, ListItemText, CssBaseline, AppBar, IconButton, Typography, Drawer,TextField, useMediaQuery } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Footer } from "../custom";
 
-const MaterialPage = () => {
+const ProductPage = () => {
 
 const [mobileOpen, setMobileOpen] = useState(false);
 const handleDrawerToggle = () => {
@@ -67,7 +67,7 @@ const isSmallScreen = useMediaQuery ("(max-width:600px)")
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Materials & Inventory
+            Products
           </Typography>
 
            <TextField
@@ -105,49 +105,59 @@ const isSmallScreen = useMediaQuery ("(max-width:600px)")
       </nav>
             
               <Typography variant="h5" sx={{marginTop:"5rem"}}>
-              Materials
+              Products and Sales
             </Typography>
-            <MaterialTable />
+            <ProductTable />
 
 
-           <Link to="/MaterialRequestForm">
+           <Link to="/ProductSales">
            <Button 
             type="button" 
             variant="contained" 
             sx={{backgroundColor: "#4CAF50", margin: "1rem"}}>
-                Make Request
+                Sales
+            </Button>
+            </Link> 
+            
+            <Link to="/ProductRecipe">
+           <Button 
+            type="button" 
+            variant="contained" 
+            sx={{backgroundColor: "#4CAF50", margin: "1rem"}}>
+                recipe
             </Button>
             </Link> 
 
-           <Link to="/MaterialTransferForm">
+           <Link to="/ProductTransferForm">
            <Button 
             type="button" 
             variant="contained" 
             sx={{backgroundColor: "#4CAF50", margin: "1rem"}}>
-                Transfer Material
+                Transfer Product
             </Button>
             </Link> 
 
-           <Link to="/MaterialDamagesForm">
+           <Link to="/ProductDamagesForm">
            <Button 
             type="button" 
             variant="contained" 
             sx={{backgroundColor: "#4CAF50", margin: "1rem"}}>
-                Register Damages
+                Product Damages
             </Button>
             </Link> 
-           <Link to="/MaterialForm">
+
+           <Link to="/ProductForm">
            <Button 
             type="button" 
             variant="contained" 
             sx={{backgroundColor: "#4CAF50", margin: "1rem"}}>
-                Create New Material
+                Create New Product
             </Button>
             </Link> 
-           
+
             <Footer />
         </div>
     );
 };
 
-export default MaterialPage;
+export default ProductPage;

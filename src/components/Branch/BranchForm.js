@@ -1,10 +1,32 @@
 import React, { useState } from "react";
+import { Footer } from "../custom";
 import { TextField, Button, Typography, Box } from "@mui/material";
 import { createBranch } from "./branchApi";
 
+
+
+
+const inputFieldStyles = {
+  "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+          borderColor: "#4CAF50",
+      },
+      "&:hover fieldset": {
+          borderColor: "#4CAF50",
+      },
+      "&.Mui-focused fieldset": {
+          borderColor: "#4CAF50",
+      },
+  },
+  "& .MuiInputLabel-root.Mui-focused": {
+      color: "#4CAF50",
+  },
+};
+
 const BranchForm = ({ onSubmit }) => {
   const [formData, SetFormData] = useState({
-    name: '',
+    branchName: '',
+    branchId: '',
     location: '',
     manager: '',
   });
@@ -26,7 +48,13 @@ const BranchForm = ({ onSubmit }) => {
   };
 
   return (
-    <div>
+    <div style={{
+      width: "80%",
+      maxWidth: "40rem",
+      margin: "3rem auto",
+      justifySelf: "center",
+      // display:"none",
+    }}>
     <Box component="form" onSubmit={handleSubmit} p={2}>
       <Typography variant="h4" gutterBottom>
         Create Branch
@@ -34,43 +62,56 @@ const BranchForm = ({ onSubmit }) => {
       <Box mb={2}>
         <TextField
           label="Branch Name"
-          id="branchName"
-          name="name"
-          value={formData.name}
+          name="branchName"
+          value={formData.branchName}
           onChange={handleChange}
           required
           fullWidth
           margin="normal"
+          sx={inputFieldStyles}
+        />
+      </Box>
+      <Box mb={2}>
+        <TextField
+          label="Branch ID"
+          name="branchId"
+          value={formData.branchId}
+          onChange={handleChange}
+          required
+          fullWidth
+          margin="normal"
+          sx={inputFieldStyles}
         />
       </Box>
       <Box mb={2}>
         <TextField
           label="Branch Location"
-          id="branchLocation"
-          name="location"
-          value={formData.location}
+          name="branchLocation"
+          value={formData.branchLocation}
           onChange={handleChange}
           required
           fullWidth
           margin="normal"
+          sx={inputFieldStyles}
         />
       </Box>
       <Box mb={2}>
         <TextField
           label="Manager"
-          id="branchManager"
-          name="manager"
-          value={formData.manager}
+          name="branchManager"
+          value={formData.branchManager}
           onChange={handleChange}
           required
           fullWidth
           margin="normal"
+          sx={inputFieldStyles}
         />
       </Box>
-      <Button type="submit" variant="contained" color="primary">
+      <Button type="submit" variant="contained" sx={{backgroundColor: "#4CAF50"}} >
         Create Branch
       </Button>
     </Box>
+    <Footer />
     </div>
   );
 };

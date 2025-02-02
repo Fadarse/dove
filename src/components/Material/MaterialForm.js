@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Header, Footer } from "../custom";
-import { TextField, MenuItem, Button, Box, Typography, MenuList } from "@mui/material";
+import { TextField, MenuItem, Button, Box, Typography, MenuList, AppBar, Toolbar } from "@mui/material";
 import InputField from "../Dashboard/InputField";
 import { KeyboardOptionKey, Message } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 
 const MaterialForm = () => {
@@ -91,16 +92,50 @@ const MaterialForm = () => {
     };
 
     return (
+
+        
         <div>
-                <Header />
+              <AppBar sx={{
+          backgroundColor: "#f0f0f0",
+          boxShadow: "0 1px 4px",
+          color: "#4CAF50",
+          width: "100%",
+          position: "fixed",
+          top: "0",
+          zIndex: "10",
+        }} 
+        > 
+            <Toolbar>
+                <Typography variant="h5" >Create New Material</Typography>
+                  <img alt="logo" src="../superchefs-logo.png" style={{ 
+                    height: 40, 
+                    marginRight: 20, 
+                    position:"fixed",
+                    right: 0
+                     }} />
+            </Toolbar>
+                  
+        </AppBar>
             <div
                 style={{
                     width: "80%",
                     maxWidth: "40rem",
-                    margin: "3rem auto",
+                    margin: "5rem auto",
                     justifySelf: "center",
                 }}
             >
+                <Link to="/Dashboard/Material">
+                                            <Button
+                                                type="button"
+                                                variant="contained"
+                                                sx={{ backgroundColor: "#FF69B4", width: "15%", height:"25px", position:"absolute", left:"10px", top:"4.5rem" }}
+                                            >
+                                                Return
+                                            </Button>
+                                            </Link>
+
+
+
                 <Typography sx={{ margin: "2rem 0" }} variant="h5">
                     Material Registration Form
                 </Typography>
